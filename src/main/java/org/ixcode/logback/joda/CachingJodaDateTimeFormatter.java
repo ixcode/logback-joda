@@ -25,7 +25,6 @@ public class CachingJodaDateTimeFormatter {
      * @see http://joda-time.sourceforge.net/apidocs/org/joda/time/format/DateTimeFormat.html
      */
     public String format(long now) {
-
         if (now != lastTimestamp) {
             lastTimestamp = now;
             cachedStr = dateTimeFormatter.print(new DateTime());

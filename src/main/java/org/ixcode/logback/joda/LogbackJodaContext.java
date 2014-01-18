@@ -7,6 +7,10 @@ import org.slf4j.LoggerFactory;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * If you have control over how your program runs, you can simply call this method and it will set everything up
+ * for you. Alterntively you can use the pattern and layout encoders in your logback.xml file
+ */
 public class LogbackJodaContext {
 
     public static void configureLoggerContextWithJoda() {
