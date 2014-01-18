@@ -20,6 +20,8 @@ public class DateFormattingIssueTest {
 
         String timestamp = df.format(new Date(1390060787128L));
 
+        System.out.println("Timestamp with ZZ in java: " + timestamp);
+
         assertThat(timestamp, is("2014-01-18T15:59:47.128+0000 GMT"));
     }
 
@@ -35,6 +37,8 @@ public class DateFormattingIssueTest {
 
         String timestamp = df.format(new Date(1390060787128L));
 
+        System.out.println("Timestamp with XXX in java: " + timestamp);
+
         assertThat(timestamp, is("2014-01-18T15:59:47.128Z GMT"));
 
     }
@@ -47,6 +51,8 @@ public class DateFormattingIssueTest {
         DateTimeFormatter df = DateTimeFormat.forPattern("yyyy-MM-DD'T'HH:mm:ss.SSSZZ z");
 
         String timestamp = df.print(1390060787128L);
+
+        System.out.println("Timestamp with ZZ in joda: " + timestamp);
 
         assertThat(timestamp, is("2014-01-18T15:59:47.128+00:00 GMT"));
     }
