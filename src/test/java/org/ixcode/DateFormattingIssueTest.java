@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -34,7 +35,7 @@ public class DateFormattingIssueTest {
 
         String timestamp = df.format(new Date(1390060787128L));
 
-        assertThat(timestamp, is("2014-01-18T15:59:47.128+0000 GMT"));
+        assertThat(timestamp, is("2014-01-18T15:59:47.128Z GMT"));
 
     }
 
