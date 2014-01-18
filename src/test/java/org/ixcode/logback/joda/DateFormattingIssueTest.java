@@ -1,4 +1,4 @@
-package org.ixcode;
+package org.ixcode.logback.joda;
 
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
