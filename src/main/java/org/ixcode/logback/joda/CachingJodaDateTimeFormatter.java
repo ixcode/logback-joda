@@ -19,22 +19,18 @@ public class CachingJodaDateTimeFormatter {
         dateTimeFormatter = DateTimeFormat.forPattern(pattern);
     }
 
+    /**
+     * Joda formatters are threadsafe so we don't need the sunchronisation that happens with java version
+     *
+     * @see http://joda-time.sourceforge.net/apidocs/org/joda/time/format/DateTimeFormat.html
+     */
     public String format(long now) {
 
-        // Not sure if Joda DateTimeFormatter is threadsafe or not.
-
-        // See also the discussion in http://jira.qos.ch/browse/LBCLASSIC-36
-        // DateFormattingThreadedThroughputCalculator and SelectiveDateFormattingRunnable
-        // are also note worthy
-
-        // The now == lastTimestamp guard minimizes synchronization
-        synchronized (this) {
-            if (now != lastTimestamp) {
-                lastTimestamp = now;
-                cachedStr = dateTimeFormatter.print(new DateTime());
-            }
-            return cachedStr;
+        if (now != lastTimestamp) {
+            lastTimestamp = now;
+            cachedStr = dateTimeFormatter.print(new DateTime());
         }
+        return cachedStr;
     }
 
     public void changeTimeZoneTo(DateTimeZone tz) {
