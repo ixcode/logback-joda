@@ -33,7 +33,7 @@ public class DateFormattingIssueTest {
 
         String timestamp = df.format(new Date(1390060787128L));
 
-        System.out.println("Timestamp with XXX in java: " + timestamp);
+        System.out.println("Timestamp with XXX in java but in CST: " + timestamp);
 
         assertThat(timestamp, is("2014-01-18T09:59:47.128-06:00 CST"));
     }
