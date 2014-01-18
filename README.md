@@ -29,3 +29,51 @@ assertThat(timestamp, is("2014-01-18T15:59:47.128+00:00 GMT"));
 This library allows you to set a format in logback using Joda Time instead.
 
 Accorring to this <a href="http://stackoverflow.com/questions/2201925/converting-iso8601-compliant-string-to-java-util-date">stack overflow</a> question. This should all work.
+
+The issue is to do with being in GMT. Here is the source code from SimpleDateFormat that is responsible for formatting the ISO8601 timezone:
+
+```java
+case PATTERN_ISO_ZONE:   // 'X'
+  value = calendar.get(Calendar.ZONE_OFFSET)
+          + calendar.get(Calendar.DST_OFFSET);
+
+  if (value == 0) {
+      buffer.append('Z');
+      break;
+  }
+
+  value /=  60000;
+  if (value >= 0) {
+      buffer.append('+');
+  } else {
+      buffer.append('-');
+      value = -value;
+  }
+
+  CalendarUtils.sprintf0d(buffer, value / 60, 2);
+  if (count == 1) {
+      break;
+  }
+
+  if (count == 3) {
+      buffer.append(':');
+  }
+  CalendarUtils.sprintf0d(buffer, value % 60, 2);
+  break;
+```
+
+The thing is, if you are in GMT, the `value` will be `0` and hence it puts a `Z` for UTC timezone, instead of `+00:00` which you would expect.
+
+You can see this, if you change the timezone to be somewhere else:
+
+```java
+DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX z");
+df.setTimeZone(TimeZone.getTimeZone("CST"));
+
+String timestamp = df.format(new Date(1390060787128L));
+
+System.out.println("Timestamp with XXX in java: " + timestamp);
+
+assertThat(timestamp, is("2014-01-18T09:59:47.128-06:00 CST"));
+```
+
