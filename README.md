@@ -1,5 +1,33 @@
 # logback-joda
 
+## Usage
+
+Put this in your pom
+
+```xml
+<repositories>
+  <repository>
+      <id>ixcode</id>
+      <url>http://ixcode.org/repo/</url>
+      <snapshots>
+          <enabled>true</enabled>
+      </snapshots>
+      <releases>
+          <enabled>true</enabled>
+      </releases>
+  </repository>
+</repositories>
+
+<dependency>
+    <groupId>org.ixcode</groupId>
+    <artifactId>logback-joda</artifactId>
+    <version>1.0-SNAPSHOT</version>
+</dependency>
+
+```
+
+## WHY?
+
 The standard formatters for logback (and infact log4j) use the standard java date time formatters. This is simple and effective. However, there is an issue:
 
   yyyy-MM-DD'T'HH:mm:ss.SSSZZ z
@@ -78,4 +106,16 @@ assertThat(timestamp, is("2014-01-18T09:59:47.128-06:00 CST"));
 ```
 
 So, we could re-implement SimpleDateFormat, or just use JodaTime which does it the way we want.
+
+TODO:
+
+https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide?__utma=246996102.492455761.1390084270.1390084270.1390084270.1&__utmb=246996102.10.10.1390084270&__utmc=246996102&__utmx=-&__utmz=246996102.1390084270.1.1.utmcsr=maven.apache.org|utmccn=(referral)|utmcmd=referral|utmcct=/guides/mini/guide-central-repository-upload.html&__utmv=-&__utmk=120621451#SonatypeOSSMavenRepositoryUsageGuide-11.WhatDoPeopleThinkAboutOSSRH
+
+Publish on maven
+
+Or follow this:
+
+https://code.google.com/p/peter-lavalle/wiki/MavenOnDropBox
+
+
 

@@ -40,5 +40,12 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>local</id>
+            <url>file:/Users/jmdb/Code/mvn-publish-repository</url>
+        </repository>
+    </distributionManagement>
+
 
 </project>
