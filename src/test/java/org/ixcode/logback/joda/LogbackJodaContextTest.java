@@ -21,18 +21,22 @@ import static org.ixcode.logback.joda.StandardOutCapture.captureStandardOutputFo
 
 public class LogbackJodaContextTest {
 
-    private TimeZone defaultTimeZone;
+    private TimeZone defaultJavaTimeZone;
+    private DateTimeZone defaultJodaTimeZone;
 
     @Before
     public void before_each_test() {
-        defaultTimeZone = TimeZone.getDefault();
+        defaultJavaTimeZone = TimeZone.getDefault();
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
+
+        defaultJodaTimeZone = DateTimeZone.getDefault();
+        DateTimeZone.setDefault(DateTimeZone.forID("Europe/London"));
     }
 
     @After
     public void after_each_test() {
-        thaw_time();
-        TimeZone.setDefault(defaultTimeZone);
+        TimeZone.setDefault(defaultJavaTimeZone);
+        DateTimeZone.setDefault(defaultJodaTimeZone);
     }
 
 
