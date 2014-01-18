@@ -5,9 +5,13 @@ import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
 import ch.qos.logback.core.ConsoleAppender;
 import ch.qos.logback.core.util.StatusPrinter;
 import org.joda.time.DateTimeUtils;
+import org.joda.time.DateTimeZone;
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.LoggerFactory;
+
+import java.util.TimeZone;
 
 import static java.lang.System.out;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -16,6 +20,21 @@ import static org.ixcode.logback.joda.LogbackJodaContext.configureLoggerContextW
 import static org.ixcode.logback.joda.StandardOutCapture.captureStandardOutputFor;
 
 public class LogbackJodaContextTest {
+
+    private TimeZone defaultTimeZone;
+
+    @Before
+    public void before_each_test() {
+        defaultTimeZone = TimeZone.getDefault();
+        TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
+    }
+
+    @After
+    public void after_each_test() {
+        thaw_time();
+        TimeZone.setDefault(defaultTimeZone);
+    }
+
 
     @Test
     public void formats_properly_timezone() {
@@ -35,12 +54,6 @@ public class LogbackJodaContextTest {
         assertThat(output, is("[2014-01-18T15:59:47.128+00:00 GMT] - Think very carefully about time zones you should!\n"));
 
     }
-
-    @After
-    public void after_each_test() {
-        thaw_time();
-    }
-
 
     private static void freezeTimeAt(long milliseconds) {
         DateTimeUtils.setCurrentMillisFixed(milliseconds);

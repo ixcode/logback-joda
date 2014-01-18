@@ -2,6 +2,8 @@ package org.ixcode.logback.joda;
 
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.text.DateFormat;
@@ -14,6 +16,20 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 public class DateFormattingIssueTest {
+
+    private TimeZone defaultTimeZone;
+
+    @Before
+    public void before_each_test() {
+        defaultTimeZone = TimeZone.getDefault();
+        TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
+    }
+
+    @After
+    public void after_each_test() {
+        TimeZone.setDefault(defaultTimeZone);
+    }
+
 
     @Test
     public void format_with_java() {
