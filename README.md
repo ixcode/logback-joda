@@ -77,3 +77,5 @@ System.out.println("Timestamp with XXX in java: " + timestamp);
 assertThat(timestamp, is("2014-01-18T09:59:47.128-06:00 CST"));
 ```
 
+So, we could re-implement SimpleDateFormat, or just use JodaTime which does it the way we want.
+

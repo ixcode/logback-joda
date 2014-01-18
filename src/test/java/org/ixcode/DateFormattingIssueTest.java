@@ -87,4 +87,31 @@ public class DateFormattingIssueTest {
 
         assertThat(timestamp, is("2014-01-18T15:59:47.128+00:00 GMT"));
     }
+
+    /**
+     * Joda time however, formats it properly
+     */
+    @Test
+    public void format_with_joda_short() {
+        DateTimeFormatter df = DateTimeFormat.forPattern("yyyy-MM-DD'T'HH:mm:ss.SSSZ z");
+
+        String timestamp = df.print(1390060787128L);
+
+        System.out.println("Timestamp with Z in joda: " + timestamp);
+
+        assertThat(timestamp, is("2014-01-18T15:59:47.128+0000 GMT"));
+    }
+    /**
+     * Joda time however, formats it properly
+     */
+    @Test
+    public void format_with_joda_UTC() {
+        DateTimeFormatter df = DateTimeFormat.forPattern("yyyy-MM-DD'T'HH:mm:ss.SSS'Z' z").withZoneUTC();
+
+        String timestamp = df.print(1390060787128L);
+
+        System.out.println("Timestamp with UTC in joda: " + timestamp);
+
+        assertThat(timestamp, is("2014-01-18T15:59:47.128Z UTC"));
+    }
 }
