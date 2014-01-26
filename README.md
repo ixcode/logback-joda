@@ -76,6 +76,8 @@ OR you can just whack it in your logback.xml
 </configuration>
 ```
 
+We've put some examples in the <a href="https://github.com/ixcode/logback-joda/tree/master/examples">examples</a> directory in both languages. The clojure one uses <a href="https://github.com/ixcode/clj-logging-config">clj-loggin-config</a> - ixcodes' fork of https://github.com/ixcode/clj-logging-config so you will need to clone and install that too.
+
 ## WHY?
 
 The standard formatters for logback (and infact log4j) use the standard java date time formatters. This is simple and effective. However, there is an issue:
