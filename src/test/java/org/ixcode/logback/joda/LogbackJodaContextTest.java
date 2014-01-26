@@ -12,7 +12,7 @@ import java.util.TimeZone;
 import static java.lang.System.out;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.ixcode.logback.joda.LogbackJodaContext.configureLoggerContextWithJoda;
+import static org.ixcode.logback.joda.LogbackJodaContext.configure;
 import static org.ixcode.logback.joda.StandardOutCapture.captureStandardOutputFor;
 
 public class LogbackJodaContextTest {
@@ -38,7 +38,7 @@ public class LogbackJodaContextTest {
 
     @Test
     public void formats_properly_timezone() {
-        configureLoggerContextWithJoda();
+        configure();
 
         freezeTimeAt(1390060787128L);
 

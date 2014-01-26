@@ -22,7 +22,7 @@ public class LogbackJodaContext {
 
     public static final String OFFSET_TIMEZONE_FORMAT = "[%d{yyyy-MM-DD'T'HH:mm:ss.SSSZZ z}] - %msg%n";
 
-    public static void configureLoggerContextWithJoda() {
+    public static void configure() {
         LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
         loggerContext.putObject(CoreConstants.PATTERN_RULE_REGISTRY, createJodaPatternRules());
     }
