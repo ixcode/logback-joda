@@ -41,7 +41,7 @@ You can then do either this (Java)
 ```java
 LogbackJodaContext.configure();
 
-LogbackJodaContext.configureRootLogger(OFFSET_TIMEZONE_FORMAT);
+LogbackJodaContext.configureRootLogger(LogbackJodaContext.OFFSET_TIMEZONE_FORMAT);
 
 log.info("Hello Logback and Joda!");
 ```
