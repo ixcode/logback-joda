@@ -9,7 +9,7 @@
 
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [clj-logging-config "1.9.11-SNAPSHOT"]
-                 [org.ixcode/logback-joda "1.0-SNAPSHOT"]
+                 [org.ixcode/logback-joda "1.0"]
                  ]
   :main logback-example.demo
   :aot [logback-example.demo]
