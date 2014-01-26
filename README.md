@@ -21,7 +21,7 @@ Put this in your pom
 <dependency>
     <groupId>org.ixcode</groupId>
     <artifactId>logback-joda</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 </dependency>
 
 ```
@@ -33,8 +33,7 @@ Or if you prefer to dine on clojure
                  "ixcode-repo" "http://repo.ixcode.org/public"}
 
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [clj-logging-config "1.9.11-SNAPSHOT"]
-                 [org.ixcode/logback-joda "1.0-SNAPSHOT"]
+                 [org.ixcode/logback-joda "1.0"]
                  ]
 ```
 You can then do either this (Java)
