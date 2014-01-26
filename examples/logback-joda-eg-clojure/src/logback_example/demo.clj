@@ -1,6 +1,6 @@
 (ns logback-example.demo
-  (:use clj-logging-config.logback))
+  (:use clojure.tools.logging clj-logging-config.logback))
 
 
 (defn -main [& args]
-  (println "hello"))
+  (info "Hello Logback"))

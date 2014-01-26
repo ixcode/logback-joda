@@ -8,7 +8,8 @@
                  "ixcode-repo" "http://repo.ixcode.org/public"}
 
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.ixcode/logback-joda "0.1.0-SNAPSHOT"]
+                 [clj-logging-config "1.9.11-SNAPSHOT"]
+                 [org.ixcode/logback-joda "1.0-SNAPSHOT"]
                  ]
   :main logback-example.demo
   :aot [logback-example.demo]
