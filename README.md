@@ -26,6 +26,57 @@ Put this in your pom
 
 ```
 
+Or if you prefer to dine on clojure
+
+```clojure
+  :repositories {"sonatype-oss-public" "https://oss.sonatype.org/content/groups/public/"
+                 "ixcode-repo" "http://repo.ixcode.org/public"}
+
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [clj-logging-config "1.9.11-SNAPSHOT"]
+                 [org.ixcode/logback-joda "1.0-SNAPSHOT"]
+                 ]
+```
+You can then do either this (Java)
+
+```java
+LogbackJodaContext.configure();
+
+LogbackJodaContext.configureRootLogger(OFFSET_TIMEZONE_FORMAT);
+
+log.info("Hello Logback and Joda!");
+```
+
+or in clojure
+
+```clojure
+(LogbackJodaContext/configure)
+```
+
+Note for both of these, you have to then re-configure the logging before it will work - existing and started appenders will still be using the old context.
+
+OR you can just whack it in your logback.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+
+        <encoder class="org.ixcode.logback.joda.JodaTimePatternLayoutEncoder">
+            <pattern>[%d{yyyy-MM-DD'T'HH:mm:ss.SSSZZ z}]  %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.some.package" level="INFO"/>
+
+
+    <root level="info">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
+```
+
 ## WHY?
 
 The standard formatters for logback (and infact log4j) use the standard java date time formatters. This is simple and effective. However, there is an issue:
