@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd
+http://www.w3.org/2001/XMLSchema-instance ">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.ixcode</groupId>
     <artifactId>logback-joda</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <distributionManagement>
+        <repository>
+            <id>ixcode-ftp-repository</id>
+            <url>ftp://repo.ixcode.org/repo.ixcode.org</url><!-- /Users/jmdb/Code/mvn-publish-repository -->
+        </repository>
+    </distributionManagement>
+
+
     <dependencies>
         <dependency>
             <groupId>joda-time</groupId>
@@ -26,7 +36,17 @@
         </dependency>
 
     </dependencies>
+
     <build>
+        <extensions>
+            <!-- Enabling the use of FTP -->
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ftp</artifactId>
+                <version>1.0-beta-6</version>
+            </extension>
+        </extensions>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -40,12 +60,6 @@
         </plugins>
     </build>
 
-    <distributionManagement>
-        <repository>
-            <id>local</id>
-            <url>file:/Users/jmdb/Code/mvn-publish-repository</url>
-        </repository>
-    </distributionManagement>
 
 
 </project>
