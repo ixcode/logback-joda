@@ -8,7 +8,7 @@ Put this in your pom
 <repositories>
   <repository>
       <id>ixcode</id>
-      <url>http://ixcode.org/repo/</url>
+      <url>http://repo.ixcode.org/public/</url>
       <snapshots>
           <enabled>true</enabled>
       </snapshots>
