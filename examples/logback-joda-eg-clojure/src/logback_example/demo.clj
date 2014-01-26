@@ -7,5 +7,5 @@
   (reset-logging!)
   (LogbackJodaContext/configure)
   (set-logger! :pattern "[%d{yyyy-MM-DD'T'HH:mm:ss.SSSZZ z}] - %msg%n")
-  (info "Hello Logback"))
+  (info "Hello Logback and Joda"))
 

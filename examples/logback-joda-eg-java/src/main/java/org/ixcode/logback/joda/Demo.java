@@ -13,7 +13,7 @@ public class Demo {
 
     public static void main(String[] args) {
 
-        configureLoggerContextWithJoda();
+        configure();
 
         configureRootLogger(OFFSET_TIMEZONE_FORMAT);
 
