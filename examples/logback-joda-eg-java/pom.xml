@@ -11,7 +11,7 @@
     <repositories>
         <repository>
             <id>ixcode</id>
-            <url>http://repo.ixcode.org/</url>
+            <url>http://repo.ixcode.org/public</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
