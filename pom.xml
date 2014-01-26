@@ -7,12 +7,12 @@ http://www.w3.org/2001/XMLSchema-instance ">
 
     <groupId>org.ixcode</groupId>
     <artifactId>logback-joda</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <distributionManagement>
         <repository>
             <id>ixcode-ftp-repository</id>
-            <url>ftp://repo.ixcode.org/repo.ixcode.org</url><!-- /Users/jmdb/Code/mvn-publish-repository -->
+            <url>ftp://repo.ixcode.org/repo.ixcode.org</url>
         </repository>
     </distributionManagement>
 
