@@ -76,7 +76,7 @@ OR you can just whack it in your logback.xml
 </configuration>
 ```
 
-We've put some examples in the <a href="https://github.com/ixcode/logback-joda/tree/master/examples">examples</a> directory in both languages. The clojure one uses https://github.com/ixcode/clj-logging-config - ixcodes' fork of https://github.com/malcolmsparks/clj-logging-configso you will need to clone and install that too.
+We've put some examples in the <a href="https://github.com/ixcode/logback-joda/tree/master/examples">examples</a> directory in both languages. The clojure one uses https://github.com/ixcode/clj-logging-config - ixcodes' fork of https://github.com/malcolmsparks/clj-logging-config so you will need to clone and install that too.
 
 ## WHY?
 
