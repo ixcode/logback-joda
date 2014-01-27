@@ -12,7 +12,7 @@ http://www.w3.org/2001/XMLSchema-instance ">
     <distributionManagement>
         <repository>
             <id>ixcode-ftp-repository</id>
-            <url>ftp://repo.ixcode.org/repo.ixcode.org</url>
+            <url>ftp://repo.ixcode.org/repo.ixcode.org/public</url>
         </repository>
     </distributionManagement>
 
